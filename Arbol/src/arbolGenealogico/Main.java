@@ -21,7 +21,11 @@ public class Main {
 		personaTest8.setPadre(personaTest);
 		personaTest4.setPadre(personaTest);
 		personaTest9.setPadre(personaTest2);
-		Persona.listarNombres(personaTest2.getTios());
+		Persona.listarNombres(personaTest2.getPadres());
+		System.out.println("\n");
+		Persona.listarNombres(personaTest2.getHermanos());
+		System.out.println("\n");
+		Persona.listarNombres(personaTest2.getPrimos());
 
 	}
 

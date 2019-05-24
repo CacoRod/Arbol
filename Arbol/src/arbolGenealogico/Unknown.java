@@ -1,5 +1,6 @@
 package arbolGenealogico;
 
+import java.util.Collection;
 import java.util.TreeSet;
 
 class Unknown extends Persona {
@@ -9,23 +10,13 @@ class Unknown extends Persona {
 	public Unknown() {
 
 	}
-	
+
+	@Override
+	public void addIfNotUnknow(Collection<Persona> collection) {
+	}
 	
 	public int compareTo(Persona o) {
 		return 1;
 	}
-	public Persona getPadre() {
-		return new Unknown();
-	}
-	public Persona GetMadre() {
-		return new Unknown();
-	}
-	public TreeSet<Persona> getHijos() {
-		return new TreeSet<Persona>();
-		
-	}
-	public TreeSet<Persona> getHijas() {
-		return new TreeSet<Persona>();
-		
-	}
+
 }
