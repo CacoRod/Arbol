@@ -49,16 +49,29 @@
         <input type="date" name="fechaNac" id="fechaNac" placeholder="Ingrese su Fecha de Nacimiento" ></input><br/>
         
         <br/>
-        <input type="checkbox" name="murio"></input>Fallecio?<br/>
+        <input type="checkbox" onclick="myFunction()" name="murio"></input>Fallecio?<br/>
+        
+        <script>
+		function myFunction() {
+ 			 document.getElementById("fechaFall").disabled = true;
+			}
+		</script>
 
         <label for="FechaNac">Fecha de Fallecimiento:</label><br/>
         <input type="date" name="fechaFall" id="fechaFall" placeholder="Ingrese su Fecha de Fallecimiento" ></input><br/>
 
         <label for="Nacionalidad">Nacionalidad:</label><br/>
         <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Ingrese su Nacionalidad" ></input><br/>
-
-        <label for="recidencia">Recidencia:</label><br/>
-        <input type="text" name="recidencia" id="recidencia" placeholder="Ingrese su Nacionalidad" ></input><br/>
+		
+		<br/>
+		<br/>
+		<label for="recidencia">Domicilio:</label><br/>
+        <label for="recidencia">Pais:</label><br/>
+        <input type="text" name="pais" id="pais" placeholder="Ingrese su Pais" ></input><br/>
+        <label for="recidencia">Ciudad:</label><br/>
+        <input type="text" name="ciudad" id="ciudad" placeholder="Ingrese su ciudad" ></input><br/>
+        <label for="recidencia">Direccion:</label><br/>
+        <input type="text" name="direccion" id="direccion" placeholder="Ingrese su Direccion" ></input><br/>
         <br/>
         <br/>
   
