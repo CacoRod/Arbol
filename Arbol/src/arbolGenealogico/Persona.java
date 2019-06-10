@@ -1,5 +1,7 @@
 package arbolGenealogico;
 
+import java.util.Collection;
+//import java.util.Collections;
 import java.util.TreeSet;
 
 public abstract class Persona implements Comparable<Persona>{
@@ -9,18 +11,18 @@ public abstract class Persona implements Comparable<Persona>{
 	private Persona madre;
 	private TreeSet<Persona> hijos;
 	private TreeSet<Persona> hijas;
-	private TreeSet<Persona> parejas;
-	private boolean casado;
+//	private TreeSet<Persona> parejas;
+//	private boolean casado;
  	
 	public Persona(String nombre, String apellido) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.hijos = new TreeSet<Persona>();
 		this.hijas = new TreeSet<Persona>();
-		this.parejas = new TreeSet<Persona>();
 		this.setPadre(new Unknown());
 		this.setMadre(new Unknown());
-		casado = false;
+//		casado = false;
+//		this.parejas = new TreeSet<Persona>();
 	}
 	
 	public Persona() {
@@ -28,18 +30,162 @@ public abstract class Persona implements Comparable<Persona>{
 		this.apellido= "Person";
 		this.hijos = new TreeSet<Persona>();
 		this.hijas = new TreeSet<Persona>();
-	}
-	
-	
-	
-	
-	public TreeSet<Persona> getParejas() {
-		return parejas;
-	}
-
-	public void setParejas(TreeSet<Persona> parejas) {
-		this.parejas = parejas;
-	}
+	}	
+//	
+//	public TreeSet<Persona> getParejas() {
+//		return parejas;
+//	}
+//
+//	public void setParejas(TreeSet<Persona> parejas) {
+//		this.parejas = parejas;
+//	}
+//	public Persona getPareja() { 
+//		if (casado) return this.parejas.last();
+//		return null;		
+//	}
+//	
+//	public TreeSet<Persona> getExparejas() {
+//		TreeSet<Persona> lista = getParejas();
+//		if (casado) lista.remove(lista.last());
+//		return lista;		
+//	}
+//	
+//	
+//	public Persona getSuegro() {
+//		return getPareja().getPadre();
+//	}
+//	
+//	public Persona getSuegra() {
+//		return getPareja().getMadre();
+//	}
+//	
+//	public TreeSet<Persona> getCuniados(){
+//		return getPareja().getHermanos();
+//	}
+//	
+//	public TreeSet<Persona> getCuniadas(){
+//		return getPareja().getHermanas();
+//	}
+//	
+//	public TreeSet<Persona> getYernos(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getHijas();
+//		lista.addAll(getHijos());
+//		for (Persona a : lista) {
+//			a.getPareja().agregarHombre(listaFinal);
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getNueras(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getHijas();
+//		lista.addAll(getHijos());
+//		for (Persona a : lista) {
+//			a.getPareja().agregarMujer(listaFinal);
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getPadrastros(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getPadres();
+//		for (Persona a : lista) {
+//			if (a.getPareja() instanceof Hombre && a.getPareja() != this.getPadre()) listaFinal.add(a.getPareja());
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getMadrastras(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getPadres();
+//		for (Persona a : lista) {
+//			if (a.getPareja() instanceof Mujer && a.getPareja() != this.getMadre()) listaFinal.add(a.getPareja());
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getHermanastros(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getPadrastros();
+//		lista.addAll(getMadrastras());
+//		for (Persona a : lista) {
+//			for (Persona b : a.getHijos()) {
+//				if (!a.getPareja().getHijos().contains(b)) listaFinal.add(b);
+//			}
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getHermanastras(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getPadrastros();
+//		lista.addAll(getMadrastras());
+//		for (Persona a : lista) {
+//			for (Persona b : a.getHijas()) {
+//				if (!a.getPareja().getHijas().contains(b)) listaFinal.add(b);
+//			}
+//		}
+//		return listaFinal;
+//	}
+//	public TreeSet<Persona> getBisabuelos(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getAbuelos();
+//		lista.addAll(getAbuelas());
+//		for (Persona a : lista){
+//			listaFinal.add(a.getPadre());
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getBisabuelas(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getAbuelos();
+//		lista.addAll(getAbuelas());
+//		for (Persona a : lista){
+//			listaFinal.add(a.getMadre());
+//		}
+//		return listaFinal;
+//	}
+//	public TreeSet<Persona> getAncestros(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		listaFinal.addAll(getPadres());
+//		listaFinal.addAll(getAbuelos());
+//		listaFinal.addAll(getAbuelas());
+//		listaFinal.addAll(getBisabuelas());
+//		listaFinal.addAll(getBisabuelos());
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getDescendientes(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		listaFinal.addAll(getHijos());
+//		listaFinal.addAll(getHijas());
+//		listaFinal.addAll(getNietos());
+//		listaFinal.addAll(getNietas());
+//		listaFinal.addAll(getBisnietos());
+//		listaFinal.addAll(getBisnietas());
+//		return listaFinal;
+//	}
+//	public TreeSet<Persona> getBisnietas(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getNietos();
+//		lista.addAll(getNietas());
+//		for (Persona a : lista){
+//			listaFinal.addAll(a.getHijas());
+//		}
+//		return listaFinal;
+//	}
+//	
+//	public TreeSet<Persona> getBisnietos(){
+//		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
+//		TreeSet<Persona> lista = getNietos();
+//		lista.addAll(getNietas());
+//		for (Persona a : lista){
+//			listaFinal.addAll(a.getHijos());
+//		}
+//		return listaFinal;
+//	}
 
 	public TreeSet<Persona> getHijas() {
 		return hijas;
@@ -106,30 +252,53 @@ public abstract class Persona implements Comparable<Persona>{
 		this.hijas.add(hija);
 	}
 		
+	public void addIfNotUnknow(Collection<Persona> collection) {
+		collection.add(this);
+	}
+	
+	public TreeSet<Persona> getPadres(){
+		TreeSet<Persona> lista = new TreeSet<Persona>();
+		getMadre().addIfNotUnknow(lista);;
+		getPadre().addIfNotUnknow(lista);;
+		
+		return lista;
+	}
+	
 	public TreeSet<Persona> getHermanos() {
-		TreeSet<Persona> lista = getPadre().getHijos();
-		lista.addAll(getMadre().getHijos());
+	
+		TreeSet<Persona> lista = new TreeSet<>();
+		
+		for(Persona p : getPadres())
+			lista.addAll(p.getHijos());
+		
 		lista.remove(this);
 		return lista;
 	}
 	
 	public TreeSet<Persona> getHermanas() {
-		TreeSet<Persona> lista = getPadre().getHijas();
-		lista.addAll(getMadre().getHijas());
+		TreeSet<Persona> lista = new TreeSet<Persona>();
+		for(Persona p : getPadres())
+			lista.addAll(p.getHijas());
+		
 		lista.remove(this);
 		return lista;
 	}
 	
 	public TreeSet<Persona> getTios(){
-		TreeSet<Persona> lista = getPadre().getHermanos();
-		lista.addAll(getMadre().getHermanos());
+		TreeSet<Persona> lista = new TreeSet<>();
+
+		for(Persona p : getPadres())
+			lista.addAll(p.getHermanos());
 		
 		return lista;
 	}
 	
 	public TreeSet<Persona>getTias(){
-		TreeSet<Persona> lista = getPadre().getHermanas();
-		lista.addAll(getMadre().getHermanas());
+		TreeSet<Persona> lista = new TreeSet<>();
+
+		for(Persona p : getPadres())
+			lista.addAll(p.getHermanas());
+		
 		return lista;
 		
 	}
@@ -174,13 +343,6 @@ public abstract class Persona implements Comparable<Persona>{
 		return listaFinal;
 	}
 	
-	public TreeSet<Persona> getPadres(){
-		TreeSet<Persona> lista = new TreeSet<Persona>();
-		lista.add(getMadre());
-		lista.add(getPadre());
-		
-		return lista;
-	}
 	
 	public TreeSet<Persona> getAbuelos(){
 		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
@@ -194,46 +356,6 @@ public abstract class Persona implements Comparable<Persona>{
 		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
 		for (Persona a : getPadres()){
 			listaFinal.add(a.getMadre());
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getBisabuelos(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getAbuelos();
-		lista.addAll(getAbuelas());
-		for (Persona a : lista){
-			listaFinal.add(a.getPadre());
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getBisabuelas(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getAbuelos();
-		lista.addAll(getAbuelas());
-		for (Persona a : lista){
-			listaFinal.add(a.getMadre());
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getBisnietas(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getNietos();
-		lista.addAll(getNietas());
-		for (Persona a : lista){
-			listaFinal.addAll(a.getHijas());
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getBisnietos(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getNietos();
-		lista.addAll(getNietas());
-		for (Persona a : lista){
-			listaFinal.addAll(a.getHijos());
 		}
 		return listaFinal;
 	}
@@ -258,115 +380,6 @@ public abstract class Persona implements Comparable<Persona>{
 		return listaFinal;
 	}
 	
-	public Persona getPareja() { 
-		if (casado) return this.parejas.last();
-		return null;		
-	}
-	
-	public TreeSet<Persona> getExparejas() {
-		TreeSet<Persona> lista = getParejas();
-		if (casado) lista.remove(lista.last());
-		return lista;		
-	}
-	
-	public Persona getSuegro() {
-		return getPareja().getPadre();
-	}
-	
-	public Persona getSuegra() {
-		return getPareja().getMadre();
-	}
-	
-	public TreeSet<Persona> getCuniados(){
-		return getPareja().getHermanos();
-	}
-	
-	public TreeSet<Persona> getCuniadas(){
-		return getPareja().getHermanas();
-	}
-	
-	public TreeSet<Persona> getYernos(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getHijas();
-		lista.addAll(getHijos());
-		for (Persona a : lista) {
-			a.getPareja().agregarHombre(listaFinal);
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getNueras(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getHijas();
-		lista.addAll(getHijos());
-		for (Persona a : lista) {
-			a.getPareja().agregarMujer(listaFinal);
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getPadrastros(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getPadres();
-		for (Persona a : lista) {
-			if (a.getPareja() instanceof Hombre && a.getPareja() != this.getPadre()) listaFinal.add(a.getPareja());
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getMadrastras(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getPadres();
-		for (Persona a : lista) {
-			if (a.getPareja() instanceof Mujer && a.getPareja() != this.getMadre()) listaFinal.add(a.getPareja());
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getHermanastros(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getPadrastros();
-		lista.addAll(getMadrastras());
-		for (Persona a : lista) {
-			for (Persona b : a.getHijos()) {
-				if (!a.getPareja().getHijos().contains(b)) listaFinal.add(b);
-			}
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getHermanastras(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		TreeSet<Persona> lista = getPadrastros();
-		lista.addAll(getMadrastras());
-		for (Persona a : lista) {
-			for (Persona b : a.getHijas()) {
-				if (!a.getPareja().getHijas().contains(b)) listaFinal.add(b);
-			}
-		}
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getAncestros(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		listaFinal.addAll(getPadres());
-		listaFinal.addAll(getAbuelos());
-		listaFinal.addAll(getAbuelas());
-		listaFinal.addAll(getBisabuelas());
-		listaFinal.addAll(getBisabuelos());
-		return listaFinal;
-	}
-	
-	public TreeSet<Persona> getDescendientes(){
-		TreeSet<Persona> listaFinal = new TreeSet<Persona>();
-		listaFinal.addAll(getHijos());
-		listaFinal.addAll(getHijas());
-		listaFinal.addAll(getNietos());
-		listaFinal.addAll(getNietas());
-		listaFinal.addAll(getBisnietos());
-		listaFinal.addAll(getBisnietas());
-		return listaFinal;
-	}
 	public static void listarNombres(TreeSet<Persona> lista) {
 		for (Persona a : lista) {
 			System.out.println(a.getNombre() + " " + a.getApellido());
