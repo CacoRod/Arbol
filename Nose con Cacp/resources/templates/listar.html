@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Listar Personas</title>
   <meta charset="utf-8"></meta>
@@ -34,33 +34,28 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     
-    <div class="col-sm-8 text-left"> 
-      <h1>Listar Personas</h1><br/>
-
       <div class="listar">
-      	<ul>
-      		<li>
-      		DNI: 123456789 <br/>
-      		Nombre, Apellido
-      		</li>
-      		<li style="float:right;"><a class="editar" href="editar">Editar</a></li><br/>
-      		<li style="float:right;"><a class="editar" href="arbol">Generar Arbol</a></li><br/>
-      		<hr/>
-
-      		<li>
-      		DNI: 123456789 <br/>
-      		Nombre, Apellido
-      		</li>
-      		<li style="float:right;"><a class="editar" href="editar">Editar</a></li><br/>
-      		<li style="float:right;"><a class="editar" href="arbol">Generar Arbol</a></li><br/>
-      		<hr/>
-		</ul>
-      </div>
-        
+	   			<form name='f' action="editar" method="post">
+                    <select name="dni">
+                         <option value=""> -- </option>
+                         <option th:each="user : ${users}"
+                            th:value="${user.getDni()}" 
+                            th:utext="${user.getFullNombre()}"/>
+                  </select>
+ 	<input name="submit" type="submit" value="editar" />
+    </form>
+    	   		<form name='f' action="arbol" method="post">
+                    <select name="dni">
+                         <option value=""> -- </option>
+                         <option th:each="user : ${users}"
+                            th:value="${user.getDni()}" 
+                            th:utext="${user.getFullNombre()}"/>
+                  </select>
+ 	<input name="submit" type="submit" value="arbol" />
+    </form>
+	</div>
     </div>
   </div>
-</div>
-
 
 </body>
 </html>

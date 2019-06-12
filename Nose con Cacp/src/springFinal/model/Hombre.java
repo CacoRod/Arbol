@@ -4,15 +4,11 @@ import java.util.TreeSet;
 
 public class Hombre extends Persona{
 
-	public Hombre(String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac) {
-		super(nombre, apellido, nacionalidad, domicilio, fnac);
+	public Hombre(String dni,String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac) {
+		super(dni,nombre, apellido, nacionalidad, domicilio, fnac);
 
 	}
-	
-	public Hombre(String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac, LocalDate fdec) {
-		super(nombre, apellido, nacionalidad, domicilio, fnac, fdec);
-	}
-	
+
 	public void setPadre(Persona padre) {
 		super.setPadre(padre);
 		this.agregarHombre(padre.getHijos());
