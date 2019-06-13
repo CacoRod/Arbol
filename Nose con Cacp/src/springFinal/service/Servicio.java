@@ -2,6 +2,8 @@ package springFinal.service;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springFinal.dto.PersonDTO;
@@ -116,9 +118,17 @@ public class Servicio {
 	public void updateUser(PersonDTO dto) {
 		System.out.println(dto.toString());
 		Persona other = repositorio.findUserByDni(dto.getDni());
-		if (((!dto.getNombre().equals(other.getNombre())) &&  dto.getNombre()!= null)) other.setNombre(dto.getNombre());
-		if (((!dto.getApellido().equals(other.getApellido())) &&  dto.getApellido()!= null)) other.setApellido(dto.getApellido());
-
+		if ((dto.getNombre()!= null)) other.setNombre(dto.getNombre());
+		if ((dto.getApellido()!= null)) other.setApellido(dto.getApellido());
+		if (!dto.getPadre().equals(other.getPadre().getDni())) {
+			if (dto.getPadre().equals("unknown")) other.resetPadre();
+			else other.setPadre(repositorio.findUserByDni(dto.getPadre()));
+		}
+		if (!dto.getMadre().equals(other.getMadre().getDni())) {
+			if (dto.getMadre().equals("unknown")) other.resetMadre();
+			else other.setMadre(repositorio.findUserByDni(dto.getMadre()));
+		}
+		
 	}
 	
 	public boolean containsDni(String dni) {
@@ -143,11 +153,19 @@ public class Servicio {
 	} 
 	
 	public List<PersonDTO> findHijos(String dni){
-		return buildDTOs(new ArrayList<Persona>(repositorio.findUserByDni(dni).getHijos()));
+		ArrayList<Persona> lista = new ArrayList<Persona>(repositorio.findUserByDni(dni).getHijos());
+		for (Persona a : lista) {
+			if (!repositorio.findAll().contains(a)) lista.remove(a);
+		}
+		return buildDTOs(lista);
 	} 
 	
 	public List<PersonDTO> findHijas(String dni){
-		return buildDTOs(new ArrayList<Persona>(repositorio.findUserByDni(dni).getHijas()));
+		ArrayList<Persona> lista = new ArrayList<Persona>(repositorio.findUserByDni(dni).getHijas());
+		for (Persona a : lista) {
+			if (!repositorio.findAll().contains(a)) lista.remove(a);
+		}
+		return buildDTOs(lista);
 	} 
 	
 	public List<PersonDTO> findAbuelos(String dni){
