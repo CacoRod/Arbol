@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Cargar Persona</title>
   <meta charset="utf-8"></meta>
@@ -24,8 +24,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Cargar Persona</a></li>
-        <li><a href="Listar">Listar Personas</a></li>
-        <li><a href="#">Generar Pirámide Poblacional</a></li>
+        <li><a href="/listar">Listar Personas</a></li>
+        <li><a href="/editar">Editar Persona</a></li>
       </ul>
     </div>
   </div>
@@ -84,20 +84,23 @@
         <br/>
         <br/>
         <label for="padre">Seleccione el Padre:</label>
-        <select name="padre">
-          <option value="masculino">dsvnjsdvns</option>
-          <option value="femenino">vsdvsdv</option>
+        <select name="Padre">
+        		<option value="unknown"> -- </option>
+				<option th:each="user : ${maleUsers}" th:classappend="${htmlclass}"
+				th:value="${user.getDni()}" 
+				th:utext="${user.getFullNombre()}" >
+				</option>
         </select>
-        <input type="checkbox" name="notieneP"/>No tiene.<br/>
       
         <br/>
         <label for="madre">Seleccione la Madre:</label>
-        <select name="madre">
-          <option value="masculino">dvsdculino</option>
-          <option value="femenino">cvacewino</option>
+        <select name="Madre">
+        		<option value="unknown"> -- </option>
+				<option th:each="user : ${femaleUsers}" th:classappend="${htmlclass}"
+				th:value="${user.getDni()}" 
+				th:utext="${user.getFullNombre()}">
+				</option>
         </select>
-        <input type="checkbox" name="notieneM"></input>No tiene.<br/>
-      
         <br/>
         <br/>
         <input type="submit" class="btn btn-success" value="Enviar"></input>

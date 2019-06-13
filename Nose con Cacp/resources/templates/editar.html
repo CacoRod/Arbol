@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Editar Persona</title>
   <meta charset="utf-8"></meta>
@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/">Cargar Persona</a></li>
-        <li><a href="Listar">Listar Personas</a></li>
+        <li><a href="/listar">Listar Personas</a></li>
         <li><a href="#">Generar Pirámide Poblacional</a></li>
       </ul>
     </div>
@@ -35,34 +35,43 @@
   <div class="row content">
     <div class="col-sm-8 text-left"> 
       <h1>Editar una Persona</h1>
-        <label for="DNI">D.N.I.:</label><br/>
-        <input type="text" name="dni" id="dni" placeholder="Ingrese su DNI" title= "Se necesita un DNI"></input><br/>
-
+		<form action="updateUser" method="post">
+		
+		
+		<select name="dni">
+				<option th:value="${edit.getDni()}" 
+				th:utext="${edit.getDni()}" >
+				</option>
+		</select>
+		<br/>
         <label for="nombre">Nombre:</label><br/>
-        <input type="text" name="nombre" id="nombre" placeholder="Ingrese su(s) nombre(s)" title= "Se necesita un nombre"></input><br/>
+        
+        
+        <input type="text" name="nombre" id="nombre" th:value="${edit.getNombre()}" title= "Se necesita un nombre"></input><br/>
 
         <label for="apellido">Apellido:</label><br/>
-        <input type="text" name="apellido" id="apellido" placeholder="Ingrese su(s) apellido(s)" ></input><br/>
+        <input type="text" name="apellido" id="apellido" th:value="${edit.getApellido()}" ></input><br/>
 
         <label for="FechaNac">Fecha de Nacimiento:</label><br/>
-        <input type="date" name="FechaNac" id="FechaNac" placeholder="Ingrese su Fecha de Nacimiento" ></input><br/>
+        <input type="date" name="FechaNac" id="FechaNac" th:value="${edit.getFechaNac()}" ></input><br/>
         
         <br/>
         <input type="checkbox" name="nomurio"></input>Fallecio?<br/>
 
         <label for="FechaNac">Fecha de Fallecimiento:</label><br/>
-        <input type="date" name="FechaFall" id="FechaFall" placeholder="Ingrese su Fecha de Fallecimiento" ></input><br/>
+        <input type="date" name="FechaFall" id="FechaFall" th:value="${edit.getFechaFall()}" ></input><br/>
 
         <label for="Nacionalidad">Nacionalidad:</label><br/>
-        <input type="text" name="Nacionalidad" id="Nacionalidad" placeholder="Ingrese su Nacionalidad" ></input><br/>
+        <input type="text" name="Nacionalidad" id="Nacionalidad" th:value="${edit.getNacionalidad()}" ></input><br/>
 
         <label for="recidencia">Recidencia:</label><br/>
-        <input type="text" name="recidencia" id="recidencia" placeholder="Ingrese su Nacionalidad" ></input><br/>
+        <input type="text" name="recidencia" id="recidencia" th:value="${edit.getPais()}" ></input><br/>
         <br/>
         <br/>
   
         <label for="sexo">Sexo:</label><br/>
         <select name="sexo">
+        	<option th:value="${edit.getSexo()}"> -- </option>
           <option value="masculino">Masculino</option>
           <option value="femenino">Femenino</option>
         </select>
@@ -70,24 +79,26 @@
         <br/>
         <br/>
         <label for="padre">Seleccione el Padre:</label>
-        <select name="padre">
-          <option value="masculino">dsvnjsdvns</option>
-          <option value="femenino">vsdvsdv</option>
+        <select name="Padre">
+        		<option> -- </option>
+				<option th:each="user : ${maleUsers}"
+				th:value="${user.getDni()}" 
+				th:utext="${user.getFullNombre()}" >
+				</option>
         </select>
-        <input type="checkbox" name="notiene"/>No tiene.<br/>
-      
         <br/>
         <label for="madre">Seleccione la Madre:</label>
-        <select name="madre">
-          <option value="masculino">dvsdculino</option>
-          <option value="femenino">cvacewino</option>
+        <select name="Madre">
+        		<option> -- </option>
+				<option th:each="user : ${femaleUsers}"
+				value="${user.getDni()}" th:utext="${user.getFullNombre()}">
+				</option>
         </select>
-        <input type="checkbox" name="notiene"></input>No tiene.<br/>
-      
         <br/>
         <br/>
         <input type="submit" class="btn btn-success" value="Enviar"></input>
         <input type="reset" class="btn btn-danger" value="Limpiar"></input><br/>
+        </form>
     </div>
   </div>
 </div>

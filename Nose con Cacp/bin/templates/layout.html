@@ -15,7 +15,7 @@
 	<div th:fragment="menu">
 		<ul>
 			<li><a href="/">Alta de usuario</a></li>
-			<li><a href="/list">Listar usuarios</a></li>
+			<li><a href="/listar">Listar usuarios</a></li>
 		</ul>
 	</div>
 
@@ -40,8 +40,8 @@
 				<th>Apellido</th>
 			</tr>
 			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getName()}" th:style="${style}" th:attr="id=${user.getName()}"></td>
-				<td th:text="${user.getSurname()}"  th:style="${style}"></td>
+				<td th:text="${user.getNombre()}" th:style="${style}" th:attr="id=${user.getNombre()}"></td>
+				<td th:text="${user.getApellido()}"  th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>

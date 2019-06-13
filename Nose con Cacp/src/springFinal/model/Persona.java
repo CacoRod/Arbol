@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.TreeSet;
 
 public abstract class Persona implements Comparable<Persona>{
+	private String dni;
 	private String nombre;
 	private String apellido;
 	private Persona padre;
@@ -17,7 +18,8 @@ public abstract class Persona implements Comparable<Persona>{
 	private String nacionalidad;
 	private String domicilio;
  	
-	public Persona(String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac) {
+	public Persona(String dni, String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac) {
+		setDni(dni);
 		setNombre(nombre);
 		setApellido(apellido);
 		setFnac(fnac);
@@ -29,19 +31,7 @@ public abstract class Persona implements Comparable<Persona>{
 		setPadre(new Unknown());
 		setMadre(new Unknown());
 	}
-	
-	public Persona(String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac, LocalDate fdec) {
-		setNombre(nombre);
-		setApellido(apellido);
-		setFnac(fnac);
-		setNacionalidad(nacionalidad);
-		setDomicilio(domicilio);
-		setFdec(fdec);
-		this.hijos = new TreeSet<Persona>();
-		this.hijas = new TreeSet<Persona>();
-		this.setPadre(new Unknown());
-		this.setMadre(new Unknown());
-	}
+
 	public Persona() {
 		this.nombre = "Unknown";
 		this.apellido= "Person";
@@ -162,6 +152,7 @@ public abstract class Persona implements Comparable<Persona>{
 		for(Persona p : getPadres())
 			lista.addAll(p.getHermanas());
 		
+		
 		return lista;
 		
 	}
@@ -251,9 +242,8 @@ public abstract class Persona implements Comparable<Persona>{
 	}
 	@Override
 	public int compareTo(Persona o) {
-		int i = 0;
 		if (o instanceof Unknown) return 1;
-		return (getApellido().compareTo(o.getApellido()) == 0 ? getNombre().compareTo(o.getNombre()) : i);
+		return (getDni().compareTo(o.getDni()));
 		
 	}
 
@@ -289,5 +279,12 @@ public abstract class Persona implements Comparable<Persona>{
 		this.nacionalidad = nacionalidad;
 	}
 
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 
 }

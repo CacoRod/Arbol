@@ -1,10 +1,7 @@
 package springFinal.dto;
 
-import java.io.Serializable;
+public class PersonDTO {
 
-public class PersonDTO implements Serializable {
-
-	private static final long serialVersionUID = -5162863043037792271L;
 	private String nombre;
 	private String apellido;
 	private String dni;
@@ -14,15 +11,43 @@ public class PersonDTO implements Serializable {
 	private String nacionalidad;
 	private String sexo;
 	private String padre;
-	private boolean notieneP;
 	private String madre;
-	private boolean notieneM;
+	private String pais;
+	private String ciudad;
+	private String direccion;
 
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
 
 	public PersonDTO() {
 	}
 
-	public PersonDTO(String nombre, String apellido) {
+	public PersonDTO(String dni,String nombre, String apellido) {
+		setDni(dni);
+		setNombre(nombre);
+		setApellido(apellido);
 	}
 
 	public String getNombre() {
@@ -94,17 +119,6 @@ public class PersonDTO implements Serializable {
 		this.nacionalidad = nacionalidad;
 	}
 
-
-	public boolean isNotieneP() {
-		return notieneP;
-	}
-
-
-	public void setNotieneP(boolean notieneP) {
-		this.notieneP = notieneP;
-	}
-
-
 	public String getMadre() {
 		return madre;
 	}
@@ -113,22 +127,6 @@ public class PersonDTO implements Serializable {
 	public void setMadre(String madre) {
 		this.madre = madre;
 	}
-
-
-	public boolean isNotieneM() {
-		return notieneM;
-	}
-
-
-	public void setNotieneM(boolean notieneM) {
-		this.notieneM = notieneM;
-	}
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 
 	public String getSexo() {
 		return sexo;
@@ -148,7 +146,18 @@ public class PersonDTO implements Serializable {
 	public void setPadre(String padre) {
 		this.padre = padre;
 	}
+	
+	public String getFullNombre() {
+		return getNombre() + " " + getApellido();
+	}
 
+	@Override
+	public String toString() {
+		return "PersonDTO [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNac=" + fechaNac
+				+ ", murio=" + murio + ", fechaFall=" + fechaFall + ", nacionalidad=" + nacionalidad + ", sexo=" + sexo
+				+ ", padre=" + padre + ", madre=" + madre + ", pais=" + pais + ", ciudad=" + ciudad + ", direccion=" + direccion + "]";
+	}
 
+	
 
 }
