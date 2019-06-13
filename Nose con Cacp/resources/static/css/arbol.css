@@ -3,7 +3,7 @@ body {
 	font-family: Verdana;
 	font-style: normal;
 	font-stretch: condensed;
-	background: grey;
+	background: #222;
 
 }
 
@@ -34,12 +34,15 @@ body {
     }
     
 .row.content {
-  height: 900px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #8e54e9, #4776e6);
+  background-image: url("../family2.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
 }
     
 .sidenav {
@@ -62,3 +65,178 @@ footer {
       }
 .row.content {height:auto;} 
     }
+
+.familia{
+  margin-left:auto;
+    margin-right:auto;
+    height:auto; 
+    width:auto;
+}
+
+
+.padres {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  height: auto;
+  width: 300px;
+  margin: 50px;
+  float: left;
+}
+
+.hermanos {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.hermanas {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.hijos {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+
+.hijas {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.abuelos {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.abuelas {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.tios {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.tias {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+
+.primos {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.primas {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.nietos {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.nietas {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  clear: left;
+  float: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.sobrinos {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+
+.sobrinas {
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: auto;
+  width: 300px;
+  margin: 50px;
+}
+

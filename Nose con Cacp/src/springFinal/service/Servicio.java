@@ -1,8 +1,8 @@
 package springFinal.service;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +21,12 @@ public class Servicio {
 	public long addUser(PersonDTO dto){
 		Persona test = null;
 		if(dto.getSexo().equals("masculino")) {
-			test = new Hombre(dto.getDni(), dto.getNombre(), dto.getApellido(), dto.getNacionalidad(),null, null);
+			test = new Hombre(dto.getDni(), dto.getNombre(), dto.getApellido(), dto.getNacionalidad(),dto.getPais(), dto.getFechaNac());
 		}
 		if(dto.getSexo().equals("femenino")) {
-			test =new Mujer(dto.getDni(),dto.getNombre(), dto.getApellido(), dto.getNacionalidad(),null, null);
+			test =new Mujer(dto.getDni(),dto.getNombre(), dto.getApellido(), dto.getNacionalidad(),dto.getPais(), dto.getFechaNac());
 		}
+		test.setFnac(LocalDate.parse(dto.getFechaNac()));
 		String padre = dto.getPadre();
 		String madre = dto.getMadre();
 		if (!madre.equals("unknown")) test.setMadre(repositorio.findUserByDni(madre));
@@ -57,7 +58,7 @@ public class Servicio {
 	}
 
 	private PersonDTO buildDTO(Persona invoke) {
-		PersonDTO dto = new PersonDTO(invoke.getDni(),invoke.getNombre(),invoke.getApellido());
+		PersonDTO dto = new PersonDTO(invoke.getDni(),invoke.getNombre(),invoke.getApellido(), invoke.getNacionalidad(), invoke.getPais());
 		if (invoke instanceof Hombre) dto.setSexo("masculino");
 		else dto.setSexo("femenino");
 		return dto;
@@ -208,4 +209,49 @@ public class Servicio {
 		return buildDTOs(new ArrayList<Persona>(repositorio.findUserByDni(dni).getSobrinas()));
 	}
 	
+	
+	
+	
+	public long getHombresNativosInRange(int a, int b){
+		ArrayList<Persona> list = (ArrayList<Persona>) repositorio.findAllMen();
+		List<Persona> finalList = new ArrayList<Persona>();
+		for (Persona ob :list){
+			if ((ob.getEdad() >= a && ob.getEdad() <= b) && (ob.getNacionalidad().equalsIgnoreCase(ob.getPais()))) {
+				finalList.add(ob);
+				System.out.println("N" +finalList.size());
+			}
+		}
+		return finalList.size();
+	}
+	public long getMujeresNativosInRange(int a, int b){
+		List<Persona> list = repositorio.findAllWomen();
+		List<Persona> finalList = new ArrayList<Persona>();
+		for (Persona ob :list){
+			if ((ob.getEdad() >= a && ob.getEdad() <= b) && (ob.getNacionalidad().equalsIgnoreCase(ob.getPais()))) {
+				finalList.add(ob);
+			}
+		}
+		return finalList.size();
+	}
+	
+	public long getHombresExtranjerosInRange(int a, int b){
+		List<Persona> list = repositorio.findAllMen();
+		List<Persona> finalList = new ArrayList<Persona>();
+		for (Persona ob :list){
+			if ((ob.getEdad() >= a && ob.getEdad() <= b) && (!(ob.getNacionalidad().equalsIgnoreCase(ob.getPais())))) {
+				finalList.add(ob);
+			}
+		}
+		return finalList.size();
+	}
+	public long getMujeresExtranjerosInRange(int a, int b){
+		List<Persona> list = repositorio.findAllWomen();
+		List<Persona> finalList = new ArrayList<Persona>();
+		for (Persona ob :list){
+			if ((ob.getEdad() >= a && ob.getEdad() <= b) && (!(ob.getNacionalidad().equalsIgnoreCase(ob.getPais())))) {
+				finalList.add(ob);
+			}
+		}
+		return finalList.size();
+	}
 }

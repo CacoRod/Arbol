@@ -3,7 +3,7 @@ body {
 	font-family: Verdana;
 	font-style: normal;
 	font-stretch: condensed;
-	background: green;
+	background: #222;
 
 }
 
@@ -39,7 +39,10 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #8e54e9, #4776e6);
+  background-image: url("../family2.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
 }
     
 .sidenav {
@@ -62,13 +65,3 @@ footer {
       }
 .row.content {height:auto;} 
     }
-
-
-.listar{
-  font-weight: bold;
-  color: black;
-}
-
-.editar{
-  color: black;
-}

@@ -16,7 +16,6 @@ public class PersonDTO {
 	private String ciudad;
 	private String direccion;
 
-
 	public String getPais() {
 		return pais;
 	}
@@ -44,10 +43,12 @@ public class PersonDTO {
 	public PersonDTO() {
 	}
 
-	public PersonDTO(String dni,String nombre, String apellido) {
+	public PersonDTO(String dni,String nombre, String apellido, String nacionalidad, String pais) {
 		setDni(dni);
 		setNombre(nombre);
 		setApellido(apellido);
+		setNacionalidad(nacionalidad);
+		setPais(pais);
 	}
 
 	public String getNombre() {
@@ -157,7 +158,5 @@ public class PersonDTO {
 				+ ", murio=" + murio + ", fechaFall=" + fechaFall + ", nacionalidad=" + nacionalidad + ", sexo=" + sexo
 				+ ", padre=" + padre + ", madre=" + madre + ", pais=" + pais + ", ciudad=" + ciudad + ", direccion=" + direccion + "]";
 	}
-
-	
 
 }
