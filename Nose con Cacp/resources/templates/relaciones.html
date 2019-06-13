@@ -41,23 +41,18 @@
 				<th></th>
 			</tr>
 			<tr th:each="user : ${padres}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getApellido()}" th:style="${style}"></td>
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
-	<!--  
 	<div class="hermanos">
 		<table>
 			<tr>
 				<th>Hermanos</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${hermanos}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -68,10 +63,8 @@
 				<th>Hermanas</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${hermanas}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -82,10 +75,8 @@
 				<th>Hijos</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${hijos}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -96,10 +87,8 @@
 				<th>Hijas</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${hijas}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -110,10 +99,8 @@
 				<th>Abuelos</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${abuelos}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -124,10 +111,8 @@
 				<th>Abuelas</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${abuelas}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -138,10 +123,8 @@
 				<th>Tios</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${tios}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -152,10 +135,8 @@
 				<th>Tias</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${tias}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -166,10 +147,8 @@
 				<th>Primos</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${primos}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -180,10 +159,8 @@
 				<th>Primas</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${primas}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -194,10 +171,8 @@
 				<th>Nietos</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${nietos}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -208,10 +183,8 @@
 				<th>Nietas</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${nietas}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -222,10 +195,8 @@
 				<th>Sobrinos</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${sobrinos}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
@@ -236,14 +207,12 @@
 				<th>Sobrinas</th>
 				<th></th>
 			</tr>
-			<tr th:each="user : ${users}" th:classappend="${htmlclass}">
-				<td th:text="${user.getNombre()}" th:style="${style}"
-					th:attr="id=${user.getNombre()}"></td>
-				<td th:text="${user.getSurname()}" th:style="${style}"></td>
+			<tr th:each="user : ${sobrinas}" th:classappend="${htmlclass}">
+				<td th:text="${user.getFullNombre()}" th:style="${style}"></td>
 			</tr>
 		</table>
 	</div>
-      -->
+
     </div>
   </div>
 

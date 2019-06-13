@@ -38,7 +38,35 @@ public class Controlador {
 	public ModelAndView mostrarArbol(PersonDTO dto) {
 		ModelAndView modelAndView = new ModelAndView("relaciones");
 		List<PersonDTO> padres = service.findPadres(dto.getDni());
+		List<PersonDTO> hermanos = service.findHermanos(dto.getDni());
+		List<PersonDTO> hermanas = service.findHermanas(dto.getDni());
+		List<PersonDTO> hijos = service.findHijos(dto.getDni());
+		List<PersonDTO> hijas = service.findHijas(dto.getDni());
+		List<PersonDTO> abuelos = service.findAbuelos(dto.getDni());
+		List<PersonDTO> abuelas = service.findAbuelas(dto.getDni());
+		List<PersonDTO> tios = service.findTios(dto.getDni());
+		List<PersonDTO> tias = service.findTias(dto.getDni());
+		List<PersonDTO> primos = service.findPrimos(dto.getDni());
+		List<PersonDTO> primas = service.findPrimas(dto.getDni());
+		List<PersonDTO> nietos = service.findNietos(dto.getDni());
+		List<PersonDTO> nietas = service.findNietas(dto.getDni());
+		List<PersonDTO> sobrinos = service.findSobrinos(dto.getDni());
+		List<PersonDTO> sobrinas = service.findSobrinas(dto.getDni());
 		modelAndView.addObject("padres", padres);
+		modelAndView.addObject("hermanos", hermanos);
+		modelAndView.addObject("hermanas", hermanas);
+		modelAndView.addObject("hijos", hijos);
+		modelAndView.addObject("hijas", hijas);
+		modelAndView.addObject("abuelos", abuelos);
+		modelAndView.addObject("abuelas", abuelas);
+		modelAndView.addObject("tios", tios);
+		modelAndView.addObject("tias", tias);
+		modelAndView.addObject("primos", primos);
+		modelAndView.addObject("primas", primas);
+		modelAndView.addObject("nietos", nietos);
+		modelAndView.addObject("nietas", nietas);
+		modelAndView.addObject("sobrinos", sobrinos);
+		modelAndView.addObject("sobrinas", sobrinas);
 		return modelAndView;
 	}
 	

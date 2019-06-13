@@ -97,7 +97,8 @@
         <select name="Madre">
         		<option value="unknown"> -- </option>
 				<option th:each="user : ${femaleUsers}" th:classappend="${htmlclass}"
-				value="${user.getDni()}" th:utext="${user.getFullNombre()}">
+				th:value="${user.getDni()}" 
+				th:utext="${user.getFullNombre()}">
 				</option>
         </select>
         <br/>

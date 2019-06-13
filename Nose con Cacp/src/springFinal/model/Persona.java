@@ -152,6 +152,7 @@ public abstract class Persona implements Comparable<Persona>{
 		for(Persona p : getPadres())
 			lista.addAll(p.getHermanas());
 		
+		
 		return lista;
 		
 	}
@@ -241,9 +242,8 @@ public abstract class Persona implements Comparable<Persona>{
 	}
 	@Override
 	public int compareTo(Persona o) {
-		int i = 0;
 		if (o instanceof Unknown) return 1;
-		return (getApellido().compareTo(o.getApellido()) == 0 ? getNombre().compareTo(o.getNombre()) : i);
+		return (getDni().compareTo(o.getDni()));
 		
 	}
 

@@ -24,9 +24,10 @@ public class Servicio {
 		if(dto.getSexo().equals("femenino")) {
 			test =new Mujer(dto.getDni(),dto.getNombre(), dto.getApellido(), dto.getNacionalidad(),null, null);
 		}
-		if (!dto.getPadre().equals("unknown")) test.setPadre(repositorio.findUserByDni(dto.getPadre()));
-		if (!dto.getMadre().equals("unknown")) test.setMadre(repositorio.findUserByDni(dto.getMadre()));
-		for (Persona a : test.getAbuelos()) System.out.println(a.getNombre());
+		String padre = dto.getPadre();
+		String madre = dto.getMadre();
+		if (!madre.equals("unknown")) test.setMadre(repositorio.findUserByDni(madre));
+		if (!padre.equals("unknown")) test.setPadre(repositorio.findUserByDni(padre));
 		return repositorio.addPerson(test);
 		
 	}
