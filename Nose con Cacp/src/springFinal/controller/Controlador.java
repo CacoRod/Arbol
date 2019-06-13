@@ -100,4 +100,82 @@ public class Controlador {
 			modelAndView.addObject("id", dto.toString());
 			return modelAndView;
 	}
+	
+	@GetMapping("/piramide")
+	public ModelAndView piramide(){
+		ModelAndView modelAndView = new ModelAndView("piramide");
+		
+		long userHN9  = service.getHombresNativosInRange(0, 9);
+		long userHN19 = service.getHombresNativosInRange(10, 19);
+		long userHN29 = service.getHombresNativosInRange(20, 29);
+		long userHN39 = service.getHombresNativosInRange(30, 39);
+		long userHN49 = service.getHombresNativosInRange(40, 49);
+		long userHN59 = service.getHombresNativosInRange(50, 59);
+		long userHN69 = service.getHombresNativosInRange(60, 69);
+		long userHN79 = service.getHombresNativosInRange(70, 130);
+		
+		long userHE9  = service.getHombresExtranjerosInRange(0, 9);
+		long userHE19 = service.getHombresExtranjerosInRange(10, 19);
+		long userHE29 = service.getHombresExtranjerosInRange(20, 29);
+		long userHE39 = service.getHombresExtranjerosInRange(30, 39);
+		long userHE49 = service.getHombresExtranjerosInRange(40, 49);
+		long userHE59 = service.getHombresExtranjerosInRange(50, 59);
+		long userHE69 = service.getHombresExtranjerosInRange(60, 69);
+		long userHE79 = service.getHombresExtranjerosInRange(70, 130);
+		
+		long userMN9  = service.getMujeresNativosInRange(0, 9);
+		long userMN19 = service.getMujeresNativosInRange(10, 19);
+		long userMN29 = service.getMujeresNativosInRange(20, 29);
+		long userMN39 = service.getMujeresNativosInRange(30, 39);
+		long userMN49 = service.getMujeresNativosInRange(40, 49);
+		long userMN59 = service.getMujeresNativosInRange(50, 59);
+		long userMN69 = service.getMujeresNativosInRange(60, 69);
+		long userMN79 = service.getMujeresNativosInRange(70, 130);
+		
+		long userME9  = service.getMujeresExtranjerosInRange(0, 9);
+		long userME19 = service.getMujeresExtranjerosInRange(10, 19);
+		long userME29 = service.getMujeresExtranjerosInRange(20, 29);
+		long userME39 = service.getMujeresExtranjerosInRange(30, 39);
+		long userME49 = service.getMujeresExtranjerosInRange(40, 49);
+		long userME59 = service.getMujeresExtranjerosInRange(50, 59);
+		long userME69 = service.getMujeresExtranjerosInRange(60, 69);
+		long userME79 = service.getMujeresExtranjerosInRange(70, 130);
+		
+		modelAndView.addObject("userHN9", userHN9);
+		modelAndView.addObject("userHN19", userHN19);
+		modelAndView.addObject("userHN29", userHN29);
+		modelAndView.addObject("userHN39", userHN39);
+		modelAndView.addObject("userHN49", userHN49);
+		modelAndView.addObject("userHN59", userHN59);
+		modelAndView.addObject("userHN69", userHN69);
+		modelAndView.addObject("userHN79", userHN79);
+		
+		modelAndView.addObject("userHE9", userHE9);
+		modelAndView.addObject("userHE19", userHE19);
+		modelAndView.addObject("userHE29", userHE29);
+		modelAndView.addObject("userHE39", userHE39);
+		modelAndView.addObject("userHE49", userHE49);
+		modelAndView.addObject("userHE59", userHE59);
+		modelAndView.addObject("userHE69", userHE69);
+		modelAndView.addObject("userHE79", userHE79);
+		
+		modelAndView.addObject("userMN9", userMN9);
+		modelAndView.addObject("userMN19", userMN19);
+		modelAndView.addObject("userMN29", userMN29);
+		modelAndView.addObject("userMN39", userMN39);
+		modelAndView.addObject("userMN49", userMN49);
+		modelAndView.addObject("userMN59", userMN59);
+		modelAndView.addObject("userMN69", userMN69);
+		modelAndView.addObject("userMN79", userMN79);
+		
+		modelAndView.addObject("userME9", userME9);
+		modelAndView.addObject("userME19", userME19);
+		modelAndView.addObject("userME29", userME29);
+		modelAndView.addObject("userME39", userME39);
+		modelAndView.addObject("userME49", userME49);
+		modelAndView.addObject("userME59", userME59);
+		modelAndView.addObject("userME69", userME69);
+		modelAndView.addObject("userME79", userME79);
+		return modelAndView;
+	}
 }

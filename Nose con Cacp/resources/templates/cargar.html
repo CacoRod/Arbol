@@ -5,7 +5,7 @@
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
-  <link rel="stylesheet" type="text/css" href="../static/css/estilosForm.css"></link>
+  <link rel="stylesheet" type="text/css" href="../static/css/estilosform.css"></link>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Cargar Persona</a></li>
         <li><a href="/listar">Listar Personas</a></li>
-        <li><a href="/editar">Editar Persona</a></li>
+        <li><a href="/piramide">Generar Pirámide Poblacional</a></li>
       </ul>
     </div>
   </div>
@@ -49,16 +49,23 @@
         <input type="date" name="fechaNac" id="fechaNac" placeholder="Ingrese su Fecha de Nacimiento" ></input><br/>
         
         <br/>
-        <input type="checkbox" onclick="myFunction()" name="murio"></input>Fallecio?<br/>
+        <input name="chec" type="checkbox" id="chec" onChange="comprobar(this);"></input>Fallecio?<br/>
         
         <script>
-		function myFunction() {
- 			 document.getElementById("fechaFall").disabled = true;
-			}
+		function comprobar(obj)
+    {   
+       if (obj.checked){
+      
+      document.getElementById('fechaFall').style.display = "";
+      } else{
+      
+      document.getElementById('fechaFall').style.display = "none";
+      }     
+    }
 		</script>
 
         <label for="FechaNac">Fecha de Fallecimiento:</label><br/>
-        <input type="date" name="fechaFall" id="fechaFall" placeholder="Ingrese su Fecha de Fallecimiento" ></input><br/>
+        <input type="date" style="display:none" name="fechaFall" id="fechaFall" placeholder="Ingrese su Fecha de Fallecimiento" ></input><br/>
 
         <label for="Nacionalidad">Nacionalidad:</label><br/>
         <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Ingrese su Nacionalidad" ></input><br/>

@@ -1,11 +1,10 @@
 package springFinal.model;
 
-import java.time.LocalDate;
 import java.util.TreeSet;
 
 public class Mujer extends Persona {
 
-	public Mujer(String dni,String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac) {
+	public Mujer(String dni,String nombre, String apellido, String nacionalidad, String domicilio, String fnac) {
 		super(dni,nombre, apellido, nacionalidad, domicilio, fnac);
 
 	}

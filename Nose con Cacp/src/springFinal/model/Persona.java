@@ -16,15 +16,15 @@ public abstract class Persona implements Comparable<Persona>{
 	private LocalDate fnac;
 	private LocalDate fdec;
 	private String nacionalidad;
-	private String domicilio;
+	private String pais;
  	
-	public Persona(String dni, String nombre, String apellido, String nacionalidad, String domicilio, LocalDate fnac) {
+	public Persona(String dni, String nombre, String apellido, String nacionalidad, String pais, String fnac) {
 		setDni(dni);
 		setNombre(nombre);
 		setApellido(apellido);
-		setFnac(fnac);
+		setFnac(LocalDate.parse(fnac));
 		setNacionalidad(nacionalidad);
-		setDomicilio(domicilio);
+		setPais(pais);
 		setFdec(null);
 		hijos = new TreeSet<Persona>();
 		hijas = new TreeSet<Persona>();
@@ -289,12 +289,12 @@ public abstract class Persona implements Comparable<Persona>{
 		this.fdec = fdec;
 	}
 
-	public String getDomicilio() {
-		return domicilio;
+	public String getPais() {
+		return pais;
 	}
 
-	public void setDomicilio(String domicilio) {
-		this.domicilio = domicilio;
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
 	public String getNacionalidad() {
@@ -312,5 +312,7 @@ public abstract class Persona implements Comparable<Persona>{
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-
+	public int getEdad() {
+		return LocalDate.now().getYear() - fnac.getYear();
+	}
 }

@@ -3,7 +3,7 @@ body {
 	font-family: Verdana;
 	font-style: normal;
 	font-stretch: condensed;
-	background: grey;
+	background: #222;
 
 }
 
@@ -39,7 +39,10 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #8e54e9, #4776e6);
+  background-image: url("../family2.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
 }
     
 .sidenav {
@@ -63,6 +66,42 @@ footer {
 .row.content {height:auto;} 
     }
 
-input {
-  width: 40%;
+
+.listar{
+  font-weight: bold;
+  color: black;
+}
+
+.editar{
+  color: black;
+}
+
+.editar{
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: 50px;
+  width: auto;
+  padding: 10px;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rela{
+  background-color: rgba(158,158,158,0.7);
+  border: outset;
+  border-color: rgba(158,158,158,0.7);
+  float: left;
+  clear: left;
+  height: 50px;
+  width: auto;
+  padding: 10px;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

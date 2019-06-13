@@ -5,7 +5,7 @@
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
-  <link rel="stylesheet" type="text/css" href="../static/css/editar.css"></link>
+  <link rel="stylesheet" type="text/css" href="../static/css/Editar.css"></link>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/">Cargar Persona</a></li>
         <li><a href="/listar">Listar Personas</a></li>
-        <li><a href="#">Generar Pirámide Poblacional</a></li>
+        <li><a href="/piramide">Generar Pirámide Poblacional</a></li>
       </ul>
     </div>
   </div>
@@ -64,8 +64,15 @@
         <label for="Nacionalidad">Nacionalidad:</label><br/>
         <input type="text" name="Nacionalidad" id="Nacionalidad" th:value="${edit.getNacionalidad()}" ></input><br/>
 
-        <label for="recidencia">Recidencia:</label><br/>
+       
+        <label for="recidencia">Domicilio:</label><br/>
+        <label for="recidencia">Pais:</label><br/>
         <input type="text" name="recidencia" id="recidencia" th:value="${edit.getPais()}" ></input><br/>
+        <label for="recidencia">Ciudad:</label><br/>
+        <input type="text" name="ciudad" id="ciudad" th:value="${edit.getCiudad()}" ></input><br/>
+        <label for="recidencia">Direccion:</label><br/>
+        <input type="text" name="direccion" id="direccion" th:value="${edit.getDireccion()}" ></input><br/>
+        
         <br/>
         <br/>
   
