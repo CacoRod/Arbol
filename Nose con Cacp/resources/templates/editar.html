@@ -80,7 +80,7 @@
         <br/>
         <label for="padre">Seleccione el Padre:</label>
         <select name="Padre">
-        		<option> -- </option>
+        		<option value="unknown"> -- </option>
 				<option th:each="user : ${maleUsers}"
 				th:value="${user.getDni()}" 
 				th:utext="${user.getFullNombre()}" >
@@ -89,9 +89,10 @@
         <br/>
         <label for="madre">Seleccione la Madre:</label>
         <select name="Madre">
-        		<option> -- </option>
+        		<option value="unknown"> -- </option>
 				<option th:each="user : ${femaleUsers}"
-				value="${user.getDni()}" th:utext="${user.getFullNombre()}">
+				th:value="${user.getDni()}" 
+				th:utext="${user.getFullNombre()}">
 				</option>
         </select>
         <br/>

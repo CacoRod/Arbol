@@ -38,8 +38,26 @@ public abstract class Persona implements Comparable<Persona>{
 		this.hijos = new TreeSet<Persona>();
 		this.hijas = new TreeSet<Persona>();
 	}
+	public void resetMadre() {
+		getMadre().getHijos().remove(this);
+		getMadre().getHijas().remove(this);
+		setMadre(new Unknown());
+	}
+	public void resetPadre() {
+		getPadre().getHijos().remove(this);
+		getPadre().getHijas().remove(this);
+		setPadre(new Unknown());
+	}
+	public Persona(Persona ob) {
+		setDni(ob.getDni());
+		setNombre(ob.getNombre());
+		setApellido(ob.getApellido());
+		setNacionalidad(ob.getNacionalidad());
+		setFnac(ob.getFnac());
+		setPadre(ob.getPadre());
+		setMadre(ob.getMadre());
 
-
+	}
 	public TreeSet<Persona> getHijas() {
 		return hijas;
 	}
@@ -69,10 +87,18 @@ public abstract class Persona implements Comparable<Persona>{
 	}
 
 	public void setPadre(Persona padre) {
+		if (!(getPadre() instanceof Unknown) && getPadre() != null) {
+			getPadre().getHijos().remove(this);
+			getPadre().getHijas().remove(this);
+		}
 		this.padre = padre;
 	}
 
 	public void setMadre(Persona madre) {
+		if (!(getMadre() instanceof Unknown) && getMadre() != null) {
+			getMadre().getHijos().remove(this);
+			getMadre().getHijas().remove(this);
+		}
 		this.madre = madre;
 	}
 

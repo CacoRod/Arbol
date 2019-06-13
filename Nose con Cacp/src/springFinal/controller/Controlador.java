@@ -76,8 +76,7 @@ public class Controlador {
 		PersonDTO edit = service.buildDTO(dto.getDni());
 		List<PersonDTO> maleUsers = service.listMen();
 		List<PersonDTO> femaleUsers = service.listWomen();
-		maleUsers.remove(edit);
-		femaleUsers.remove(edit);
+		
 		modelAndView.addObject("maleUsers", maleUsers);
 		modelAndView.addObject("femaleUsers", femaleUsers);
 		modelAndView.addObject("edit",edit);
